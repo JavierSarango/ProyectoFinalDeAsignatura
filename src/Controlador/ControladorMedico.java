@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testproyecto;
+package Controlador;
 
 /**
  *
- * @author Javier
+ * @author Home
  */
-public interface ObtenerDatos {
-    public abstract void ObtenerDatos();
+public class ControladorMedico {
+    
 }
