@@ -17,7 +17,7 @@ public class Medico extends Persona {
        this.getNombre();
        this.getEdad();
        this.getNumcedula();
-       this.getSexo();
+       this.getGenero();
        this.getTelefono();
      }
 

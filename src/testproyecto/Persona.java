@@ -15,7 +15,7 @@ public abstract class Persona {
     private String nombre;
     private int edad;
     private int numcedula;
-    private String sexo;
+    private String genero;
     private int telefono;
     
     public abstract void ObtenerDatos();
@@ -64,17 +64,17 @@ public abstract class Persona {
     }
 
     /**
-     * @return the sexo
+     * @return the genero
      */
-    public String getSexo() {
-        return sexo;
+    public String getGenero() {
+        return genero;
     }
 
     /**
-     * @param sexo the sexo to set
+     * @param genero the sexo to set
      */
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     /**
