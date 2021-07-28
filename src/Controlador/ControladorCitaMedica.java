@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Controlador;
 
 /**
  *
- * @author Javier
+ * @author Home
  */
-public class CitaMedica {
-    private double  ciudad;
+public class ControladorCitaMedica {
+    
 }

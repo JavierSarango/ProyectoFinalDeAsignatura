@@ -5,6 +5,8 @@
  */
 package testproyecto;
 
+import Modelo.Persona;
+
 /**
  *
  * @author Javier
