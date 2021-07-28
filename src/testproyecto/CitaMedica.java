@@ -10,5 +10,19 @@ package testproyecto;
  * @author Javier
  */
 public class CitaMedica {
-    
+
+    /**
+     * @return the nroCita
+     */
+    public int getNroCita() {
+        return nroCita;
+    }
+
+    /**
+     * @param nroCita the nroCita to set
+     */
+    public void setNroCita(int nroCita) {
+        this.nroCita = nroCita;
+    }
+    private int nroCita;
 }
