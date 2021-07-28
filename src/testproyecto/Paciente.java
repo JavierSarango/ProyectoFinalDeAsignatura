@@ -9,6 +9,25 @@ package testproyecto;
  *
  * @author Javier
  */
-public class Paciente {
+public class Paciente extends Persona{
+    private String ciudad;
+
+    @Override
+    public void ObtenerDatos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    /**
+     * @return the ciudad
+     */
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    /**
+     * @param ciudad the ciudad to set
+     */
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
     
 }
