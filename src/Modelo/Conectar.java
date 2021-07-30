@@ -6,10 +6,12 @@
 package Modelo;
 
 import java.sql.Connection;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,17 +26,13 @@ public class Conectar {
        
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.gjt.mm.mysql.Driver");
             
             conect = DriverManager.getConnection("jdbc:mysql://localhost/consultoriomedico", "root", "");
             
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Conectar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-                Logger.getLogger(Conectar.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-       
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro " +e);
+        }    
 
         return conect;
     }

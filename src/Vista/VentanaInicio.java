@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ControladorPersona;
+import Controlador.ControladorRegistroMedico;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -80,6 +81,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
 
         jBRegistrar.setText("Registrarse");
+        jBRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -176,6 +182,14 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void TfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TfUsuarioActionPerformed
+
+    private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
+        // TODO add your handling code here:
+        Controlador.ControladorRegistroMedico ctrRegistoMedico = new ControladorRegistroMedico();
+        VentanaRegistroMedico vtnRegistro = new VentanaRegistroMedico();
+        vtnRegistro.setVisible(true);
+        ctrRegistoMedico.mostrarDatos();
+    }//GEN-LAST:event_jBRegistrarActionPerformed
 
     /**
      * @param args the command line arguments

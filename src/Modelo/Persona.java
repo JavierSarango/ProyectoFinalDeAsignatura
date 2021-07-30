@@ -12,7 +12,8 @@ package Modelo;
 public abstract class Persona {
     
     
-    private String nombre;
+    private String nombres;
+    private String apellidos;
     private int edad;
     private int numcedula;
     private String genero;
@@ -24,15 +25,15 @@ public abstract class Persona {
     /**
      * @return the nombre
      */
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
     /**
-     * @param nombre the nombre to set
+     * @param nombres the nombre to set
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     /**
@@ -89,5 +90,19 @@ public abstract class Persona {
      */
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    /**
+     * @return the apellidos
+     */
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    /**
+     * @param apellidos the apellidos to set
+     */
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 }

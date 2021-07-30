@@ -14,9 +14,10 @@ import Modelo.Persona;
 public class Medico extends Persona {
      private String especialidad;
      
-     public Medico(String especialidad, String nombre, int edad, int numCedula, String sexo, int telefono){
+     public Medico(String especialidad, String nombre,String apellidos, int edad, int numCedula, String sexo, int telefono){
        this.especialidad = especialidad;
-       this.getNombre();
+       this.getApellidos();
+       this.getNombres();
        this.getEdad();
        this.getNumcedula();
        this.getGenero();
