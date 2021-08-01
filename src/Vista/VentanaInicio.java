@@ -11,6 +11,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,7 @@ public class VentanaInicio extends javax.swing.JFrame {
      * Creates new form VentanaInicio
      */
     public VentanaInicio() {
-        setLocation(400, 175); //Determina la ubicacion de la ventana en la pantalla
+        setLocationRelativeTo(null); 
         setResizable(false);
         initComponents();
         this.setLocationRelativeTo(this);
@@ -44,11 +45,11 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        TfUsuario = new javax.swing.JTextField();
+        txtus = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        TfClave = new javax.swing.JPasswordField();
-        jBIngreso = new javax.swing.JButton();
+        TxtClave = new javax.swing.JPasswordField();
+        btnIngresar = new javax.swing.JButton();
         jBRegistrar = new javax.swing.JButton();
         Respuesta = new javax.swing.JLabel();
         jlabellogin = new javax.swing.JLabel();
@@ -61,9 +62,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Control de Acceso");
 
-        TfUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TfUsuarioActionPerformed(evt);
+                txtusActionPerformed(evt);
             }
         });
 
@@ -73,10 +74,15 @@ public class VentanaInicio extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Clave:");
 
-        jBIngreso.setText("Ingresar");
-        jBIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnIngresar.setText("Ingresar");
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBIngresoMouseClicked(evt);
+                btnIngresarMouseClicked(evt);
+            }
+        });
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
             }
         });
 
@@ -101,7 +107,7 @@ public class VentanaInicio extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addComponent(jBIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(80, 80, 80)
                                 .addComponent(jBRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -116,8 +122,8 @@ public class VentanaInicio extends javax.swing.JFrame {
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TfClave, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtus, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TxtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(jlabellogin, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -133,16 +139,16 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(TfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(Respuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TfClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
@@ -161,12 +167,12 @@ public class VentanaInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBIngresoMouseClicked
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         // TODO add your handling code here:
         Controlador.ControladorPersona ctrPersona = new ControladorPersona();
         boolean bandera = false;
 
-        bandera = ctrPersona.ingresarSistema(TfUsuario.getText(), String.valueOf(TfClave.getPassword()));
+        bandera = ctrPersona.ingresarSistema(txtus.getText(), String.valueOf(TxtClave.getPassword()));
         Respuesta.setText(" ");
         if (bandera) {
 
@@ -177,19 +183,33 @@ public class VentanaInicio extends javax.swing.JFrame {
             Respuesta.setText("Datos erróneos. Inténtelo de Nuevo");
         }
 
-    }//GEN-LAST:event_jBIngresoMouseClicked
+    }//GEN-LAST:event_btnIngresarMouseClicked
 
-    private void TfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfUsuarioActionPerformed
+    private void txtusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TfUsuarioActionPerformed
+    }//GEN-LAST:event_txtusActionPerformed
 
     private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
         // TODO add your handling code here:
         Controlador.ControladorRegistroMedico ctrRegistoMedico = new ControladorRegistroMedico();
         VentanaRegistroMedico vtnRegistro = new VentanaRegistroMedico();
         vtnRegistro.setVisible(true);
-        ctrRegistoMedico.mostrarDatos();
+        this.dispose();
     }//GEN-LAST:event_jBRegistrarActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+//        Controlador.ControladorRegistroMedico ctrRegistoMedico = new ControladorRegistroMedico();
+//        String buscarUsuario = ctrRegistoMedico.BuscarUsuarios(txtus.getText(), TxtClave.getText());
+//        if(txtus.getText().equals("root") && TxtClave.getText().equals("root")){
+//            JOptionPane.showMessageDialog(this, "Bienvenido");
+//        }else if(buscarUsuario.equals("Usuario econtrado")){
+//            String buscarNombre = ctrRegistoMedico.BucarNombre(txtus.getText());
+//            JOptionPane.showMessageDialog(this, "Bienvenido"+ buscarNombre);
+//        }else{
+//            JOptionPane.showMessageDialog(this, "No se encuentra Registrado");
+//        }
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,14 +261,14 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Respuesta;
-    private javax.swing.JPasswordField TfClave;
-    private javax.swing.JTextField TfUsuario;
-    private javax.swing.JButton jBIngreso;
+    private javax.swing.JPasswordField TxtClave;
+    private javax.swing.JButton btnIngresar;
     private javax.swing.JButton jBRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlabellogin;
+    private javax.swing.JTextField txtus;
     // End of variables declaration//GEN-END:variables
 }

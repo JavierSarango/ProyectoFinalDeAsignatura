@@ -59,7 +59,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Component id="jBIngreso" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="btnIngresar" min="-2" pref="80" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                                   <Component id="jBRegistrar" min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
@@ -79,8 +79,8 @@
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="TfUsuario" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="TfClave" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="txtus" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="TxtClave" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -104,18 +104,18 @@
                   <EmptySpace pref="9" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TfUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtus" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="Respuesta" pref="18" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TfClave" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TxtClave" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jBIngreso" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnIngresar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jBRegistrar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -132,9 +132,9 @@
             <Property name="text" type="java.lang.String" value="Control de Acceso"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TfUsuario">
+        <Component class="javax.swing.JTextField" name="txtus">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TfUsuarioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtusActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -153,14 +153,15 @@
             <Property name="text" type="java.lang.String" value="Clave:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="TfClave">
+        <Component class="javax.swing.JPasswordField" name="TxtClave">
         </Component>
-        <Component class="javax.swing.JButton" name="jBIngreso">
+        <Component class="javax.swing.JButton" name="btnIngresar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBIngresoMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnIngresarMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBRegistrar">
