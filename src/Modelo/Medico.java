@@ -14,6 +14,7 @@ import Modelo.Persona;
 public class Medico extends Persona {
      private String especialidad;
      
+
      public Medico(String especialidad, String nombre,String apellidos, int edad, int numCedula, String sexo, int telefono, String ciudad){
        this.especialidad = especialidad;
        super.setApellidos(apellidos);
@@ -24,6 +25,17 @@ public class Medico extends Persona {
        super.setTelefono(telefono);
        super.setCiudad(ciudad);
      }
+
+//     public Medico(String especialidad, String nombre,String apellidos, int edad, int numCedula, String sexo, int telefono){
+//       this.especialidad = especialidad;
+//       this.getApellidos();
+//       this.getNombres();
+//       this.getEdad();
+//       this.getNumcedula();
+//       this.getGenero();
+//       this.getTelefono();
+//     }
+
 
     @Override
     public void ObtenerDatos() {
