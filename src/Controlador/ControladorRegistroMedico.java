@@ -36,7 +36,8 @@ public class ControladorRegistroMedico {
        } catch (Exception e) {
        }
    }
-   public void Registro(){
+   public void Registro(String nombre, String apellido, String especialidad, int telefono, int numCedula, String sexo, int edad, String user, String clave ){
+       
        
    }
    
