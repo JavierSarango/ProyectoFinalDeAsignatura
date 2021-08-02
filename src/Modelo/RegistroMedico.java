@@ -10,7 +10,7 @@ package Modelo;
  * @author Home
  */
 public class RegistroMedico{
-    private String id_Usuario;
+    private int id_Usuarios;
     private String Nombres;
     private String Apellidos;
     private String Genero;
@@ -20,15 +20,15 @@ public class RegistroMedico{
     /**
      * @return the id_Usuario
      */
-    public String getId_Usuario() {
-        return id_Usuario;
+    public int getId_Usuarios() {
+        return id_Usuarios;
     }
 
     /**
      * @param id_Usuario the id_Usuario to set
      */
-    public void setId_Usuario(String id_Usuario) {
-        this.id_Usuario = id_Usuario;
+    public void setId_Usuarios(int id_Usuario) {
+        this.id_Usuarios = id_Usuario;
     }
 
     /**

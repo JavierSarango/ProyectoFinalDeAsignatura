@@ -49,15 +49,14 @@ public class ControladorRegistroMedico extends Conexion {
         //int resultado = 0;
         PreparedStatement ps = null;
         Connection con = conectar();
-        String sql = ("INSERT INTO usuarios (id_Usuarios, Nombres, Apellidos, Genero, User, Password) VALUES (?,?,?,?,?,?)");
+        String sql = ("INSERT INTO usuarios (Nombres, Apellidos, Genero, User, Password) VALUES (?,?,?,?,?)");
         try {
             ps = (PreparedStatement) con.prepareStatement(sql);
-            ps.setString(1, rm.getId_Usuario());
-            ps.setString(2, rm.getNombres());
-            ps.setString(3, rm.getApellidos());
-            ps.setString(4, rm.getGenero());
-            ps.setString(5, rm.getUser());
-            ps.setString(6, rm.getPassword());
+            ps.setString(1, rm.getNombres());
+            ps.setString(2, rm.getApellidos());
+            ps.setString(3, rm.getGenero());
+            ps.setString(4, rm.getUser());
+            ps.setString(5, rm.getPassword());
             ps.execute();
             return true;
         } catch (SQLException ex) {
@@ -65,76 +64,27 @@ public class ControladorRegistroMedico extends Conexion {
             return false;
         }
        }
-//   public void Registro(String nombre, String apellido, String especialidad, int telefono, int numCedula, String sexo, int edad, String user, String clave ){
-//       
-//       
-//   }
-//
-//public class ControladorRegistroMedico1 extends Conexion{
-//    public static PreparedStatement sentencia;
-//    public static ResultSet resultado;
-//    //public static String sql;
-//    
-//    public boolean Guardar(RegistroMedico rm){
-//        //int resultado = 0;
+//       public int ID_Incrementabel(){
+//        int Id_Usuarios = 1;
 //        PreparedStatement ps = null;
-//        Connection con = conectar();
-//        String sql = ("INSERT INTO usuarios (id_Usuarios, Nombres, Apellidos, Genero, User, Password) VALUES (?,?,?,?,?,?)");
+//        ResultSet rs = null;
+//        Conexion conexion = new Conexion();
 //        try {
-//            ps = (PreparedStatement) con.prepareStatement(sql);
-//            ps.setString(1, rm.getId_Usuario());
-//            ps.setString(2, rm.getNombres());
-//            ps.setString(3, rm.getApellidos());
-//            ps.setString(4, rm.getGenero());
-//            ps.setString(5, rm.getUser());
-//            ps.setString(6, rm.getPassword());
-//            ps.execute();
-//            return true;
-//        } catch (SQLException ex) {
-//            Logger.getLogger(RegistroMedico.class.getName()).log(Level.SEVERE, null, ex);
-//            return false;
-//        }
-//    }
-//    public static String BucarNombre(String User){
-//        String buscarNombre = null;
-//        Connection conexion = null;
-//        try {
-//            conexion = RegistroMedico.conectar();
-//            String busquedaName = ("SELECT Nombres, Apellidos, FROM usuarios WHERE User = '" + User + "'");
-//            sentencia = (PreparedStatement) conexion.prepareStatement(busquedaName);
-//            resultado = sentencia.executeQuery();
-//            if(resultado.next()){
-//                String Nombres = resultado.getString("Nombre");
-//                String Apellidos = resultado.getString("Apellidos");
-//                buscarNombre = (Nombres +" "+ Apellidos);
+//            ps = (PreparedStatement) conexion.conectar().prepareStatement("SELECT MAX(Id_Usuarios) FROM usuarios");
+//            rs = ps.executeQuery();
+//            while(rs.next()){
+//                Id_Usuarios = rs.getInt(1) + 1;
 //            }
-//            conexion.close();
 //        } catch (Exception e) {
-//            System.out.println(e);
+//            System.out.println("Error" +e.getMessage());
 //        }
-//        return buscarNombre;
-//    }
-//    public static String BuscarUsuarios(String User, String Password){
-//        String buscarUsuario = null;
-//        Connection conexion = null;
-//        try {
-//            conexion = RegistroMedico.conectar();
-//            String busquedaUser = ("SELECT Nombres, User, Password FROM usuarios WHERE User = '"+User+"' && Password = '"+ Password+"'");
-//            sentencia = (PreparedStatement) conexion.prepareStatement(busquedaUser);
-//            resultado = sentencia.executeQuery();
-//            if(resultado.next()){
-//                buscarUsuario = "Valido";
-//            }else{
-//                buscarUsuario = "Invalido";
+//        finally{
+//            try {
+//                ps.close();
+//                rs.close();
+//            } catch (Exception e) {       
 //            }
-//            conexion.close();
-//        } catch (Exception e) {
-//            System.out.println(e);
 //        }
-//        return buscarUsuario;
-//    }
-//   public void Registro(){
-//       
-//   }
-   
+//        return Id_Usuarios;
+//    }   
 }

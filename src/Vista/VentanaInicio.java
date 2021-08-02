@@ -7,6 +7,10 @@ package Vista;
 
 import Controlador.ControladorPersona;
 import Controlador.ControladorRegistroMedico;
+import Modelo.Conexion;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -75,6 +79,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Clave:");
 
+        btnIngresar.setBackground(new java.awt.Color(102, 204, 255));
         btnIngresar.setText("Ingresar");
         btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -87,6 +92,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
 
+        jBRegistrar.setBackground(new java.awt.Color(102, 204, 255));
         jBRegistrar.setText("Registrarse");
         jBRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,9 +115,9 @@ public class VentanaInicio extends javax.swing.JFrame {
                         .addGap(102, 102, 102)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
+                                .addGap(4, 4, 4)
                                 .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(80, 80, 80)
+                                .addGap(87, 87, 87)
                                 .addComponent(jBRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,11 +156,11 @@ public class VentanaInicio extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,31 +177,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
-        // TODO add your handling code here:
-        Controlador.ControladorPersona ctrPersona = new ControladorPersona();
-        boolean bandera = false;
-
-        bandera = ctrPersona.ingresarSistema(txtus.getText(), String.valueOf(TxtClave.getPassword()));
-        Respuesta.setText(" ");
-        if (bandera) {
-
-            Respuesta.setText("Bienvenido al sistema");
-
-        } else {
-
-            Respuesta.setText("Datos erróneos. Inténtelo de Nuevo");
-        }
-
-    }//GEN-LAST:event_btnIngresarMouseClicked
-
-    private void txtusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtusActionPerformed
-
     private void jBRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarActionPerformed
         // TODO add your handling code here:
-        
         VentanaRegistroMedico vtnRegistro = new VentanaRegistroMedico();
         vtnRegistro.setVisible(true);
         dispose();
@@ -203,18 +186,41 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-//        Controlador.ControladorRegistroMedico ctrRegistoMedico = new ControladorRegistroMedico();
-//        String buscarUsuario = ctrRegistoMedico.BuscarUsuarios(txtus.getText(), TxtClave.getText());
-//        if(txtus.getText().equals("root") && TxtClave.getText().equals("root")){
-//            JOptionPane.showMessageDialog(this, "Bienvenido");
-//        }else if(buscarUsuario.equals("Usuario econtrado")){
-//            String buscarNombre = ctrRegistoMedico.BucarNombre(txtus.getText());
-//            JOptionPane.showMessageDialog(this, "Bienvenido"+ buscarNombre);
-//        }else{
-//            JOptionPane.showMessageDialog(this, "No se encuentra Registrado");
-//        }
+        ValidacionBD();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngresarMouseClicked
+
+    private void txtusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtusActionPerformed
+    public void ValidacionBD(){
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        int resultado = 0;
+        try {
+            String usuario = txtus.getText();
+            String pass = String.valueOf(TxtClave.getPassword());
+            String sql = "select * from usuarios where User='" +usuario+ "' and Password='"+pass+"' ";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if(rs.next()){
+                resultado = 1;
+                if(resultado==1){
+                    JOptionPane.showMessageDialog(null, "Bienvenido "+ txtus.getText());
+                    AccesoSistemaPrincipal asp = new AccesoSistemaPrincipal();
+                    asp.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se encuentra Registrado");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se encuentra Registrado"+ e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
