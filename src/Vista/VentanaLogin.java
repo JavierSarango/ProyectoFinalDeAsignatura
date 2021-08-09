@@ -210,7 +210,7 @@ public class VentanaLogin extends javax.swing.JFrame {
                 resultado = 1;
                 if(resultado==1){
                     JOptionPane.showMessageDialog(null, "Bienvenido "+ txtus.getText());
-                    AccesoSistemaPrincipal asp = new AccesoSistemaPrincipal();
+                    AccesoSistemaPrincipal_1 asp = new AccesoSistemaPrincipal_1();
                     asp.setVisible(true);
                     this.dispose();
                 }else{
@@ -251,6 +251,7 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new VentanaLogin().setVisible(true);
             }
