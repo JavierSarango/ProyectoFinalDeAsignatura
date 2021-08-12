@@ -210,7 +210,7 @@ public class VentanaLogin extends javax.swing.JFrame {
                 resultado = 1;
                 if(resultado==1){
                     JOptionPane.showMessageDialog(null, "Bienvenido "+ txtus.getText());
-                    AccesoSistemaPrincipal_1 asp = new AccesoSistemaPrincipal_1();
+                    VentanaRegistroPaciente asp = new VentanaRegistroPaciente();
                     asp.setVisible(true);
                     this.dispose();
                 }else{
