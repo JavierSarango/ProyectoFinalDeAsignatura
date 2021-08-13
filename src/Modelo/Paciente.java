@@ -6,6 +6,7 @@
 package Modelo;
 
 import Modelo.Persona;
+import java.util.Date;
 
 /**
  *
@@ -13,14 +14,24 @@ import Modelo.Persona;
  */
 public class Paciente extends Persona{
     private String ciudad;
+    private String email;
+    private Date FechaNacimiento;
 
-    @Override
-    public void ObtenerDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getEmail() {
+        return email;
     }
-    /**
-     * @return the ciudad
-     */
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getFechaNacimiento() {
+        return FechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date FechaNacimiento) {
+        this.FechaNacimiento = FechaNacimiento;
+    }
     public String getCiudad() {
         return ciudad;
     }
@@ -30,6 +41,21 @@ public class Paciente extends Persona{
      */
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    @Override
+    public void Agregar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Modificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Eliminar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

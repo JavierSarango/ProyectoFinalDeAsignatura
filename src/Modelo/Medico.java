@@ -36,10 +36,19 @@ public class Medico extends Persona {
 //       this.getTelefono();
 //     }
 
+    @Override
+    public void Agregar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
-    public void ObtenerDatos() {
-        
+    public void Modificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Eliminar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
      

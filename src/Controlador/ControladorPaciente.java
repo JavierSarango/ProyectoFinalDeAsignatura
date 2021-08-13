@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 package Controlador;
-
+import Modelo.Paciente;
 /**
  *
  * @author Home
  */
 public class ControladorPaciente {
-    
+    public void AgregarPaciente(Paciente p){
+    }
+    public void ModificarPaciente(Paciente p){
+        
+    }
 }

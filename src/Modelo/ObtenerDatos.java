@@ -10,5 +10,7 @@ package Modelo;
  * @author Javier
  */
 public interface ObtenerDatos {
-    public abstract void ObtenerDatos();
+    public abstract void Agregar();
+    public abstract void Modificar();
+    public abstract void Eliminar();
 }

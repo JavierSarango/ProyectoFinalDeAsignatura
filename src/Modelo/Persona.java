@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author Javier
  */
-public abstract class Persona {
+public abstract class Persona implements ObtenerDatos{
     
     
     private String nombres;
@@ -20,7 +20,6 @@ public abstract class Persona {
     private int telefono;
     private String Ciudad;
     
-    public abstract void ObtenerDatos();
 
     /**
      * @return the Ciudad
