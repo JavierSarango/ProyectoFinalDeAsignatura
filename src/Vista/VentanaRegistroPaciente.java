@@ -433,7 +433,7 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
             lista[4] = ctrpaciente.Listar().get(i).getTelefono();
             lista[5] = ctrpaciente.Listar().get(i).getGenero();
             lista[6] = ctrpaciente.Listar().get(i).getEmail();
-            //modelTable.addRow(lista);
+            //JtablePacientes.addRow(lista);
             //JtablePacientes.setModel(lista);
         
         if(ctrpaciente.Agregar(mod)){
