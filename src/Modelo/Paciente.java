@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Javier
  */
-public class Paciente extends Persona{
+public class Paciente extends Persona {
     private String ciudad;
     private String email;
     private Date FechaNacimiento;
@@ -42,20 +42,4 @@ public class Paciente extends Persona{
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
-    @Override
-    public void Agregar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Modificar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

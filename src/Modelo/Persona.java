@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author Javier
  */
-public abstract class Persona implements ObtenerDatos{
+public abstract class Persona {
     
     
     private String nombres;
