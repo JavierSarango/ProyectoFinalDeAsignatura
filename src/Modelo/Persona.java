@@ -19,23 +19,7 @@ public abstract class Persona {
     private String genero;
     private int telefono;
     private String Ciudad;
-    
 
-    /**
-     * @return the Ciudad
-     */
-    public String getCiudad() {
-        return Ciudad;
-    }
-
-    /**
-     * @param Ciudad the Ciudad to set
-     */
-    public void setCiudad(String Ciudad) {
-        this.Ciudad = Ciudad;
-    }
-    
-    
     /**
      * @return the nombre
      */

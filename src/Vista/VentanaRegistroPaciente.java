@@ -5,11 +5,17 @@
  */
 package Vista;
 
+import Controlador.ControladorPaciente;
+import Modelo.Paciente;
 import java.awt.Image;
+import java.awt.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +24,8 @@ import javax.swing.JLabel;
 public class VentanaRegistroPaciente extends javax.swing.JFrame {
     private ImageIcon imagen;
     private Icon icono;
+    DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel table;
     /**
      * Creates new form AccesoSistemaPrincipal
      */
@@ -34,6 +42,10 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
         this.setImagenes(jBntBuscar, "src/Imagenes/iconBuscar.png");
         this.setImagen(jLHospi, "src/Imagenes/hospital.png");
     }
+    public void ListarPaciente(){
+        Controlador.ControladorPaciente ctrP = new ControladorPaciente();
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,19 +59,21 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jTfApellidos = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTfCedulaIdentidad = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
         jLNombres = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombres = new javax.swing.JTextField();
         jLDatos = new javax.swing.JLabel();
         jLApellidos = new javax.swing.JLabel();
         jLFechaNacimiento = new javax.swing.JLabel();
         jLcorreo = new javax.swing.JLabel();
-        jTfCorreo = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTftelefono = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        txtTelefono = new javax.swing.JTextField();
+        jDateFecha = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
+        cbxGenero = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jbntAgregarPaciente = new javax.swing.JButton();
@@ -69,8 +83,9 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jBtnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JtablePacientes = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -84,8 +99,6 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jTfApellidos.setEditable(false);
 
         jLabel2.setText("C.I:");
 
@@ -104,6 +117,11 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Teléfono:");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setText("Genero");
+
+        cbxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona", "Masculino", "Femenino" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -115,30 +133,35 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLFechaNacimiento)
                         .addGap(18, 18, 18)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLApellidos)
                         .addGap(63, 63, 63)
-                        .addComponent(jTfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLNombres))
                         .addGap(66, 66, 66)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTfCedulaIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLcorreo)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefono)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTftelefono))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLcorreo)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTfCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(cbxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -149,23 +172,26 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNombres)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLcorreo)
-                    .addComponent(jTfCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLApellidos)
-                    .addComponent(jTfApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jTftelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTfCedulaIdentidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)
+                        .addComponent(cbxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLFechaNacimiento)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
 
@@ -196,6 +222,8 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
 
         jLabel11.setText("Eliminar");
 
+        jBtnListar.setText("LISTAR");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -225,7 +253,9 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(jBtnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -236,7 +266,11 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jBtnListar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
@@ -250,31 +284,31 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
                 .addGap(5, 5, 5))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JtablePacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nro Cita", "Nombre", "Apellido", "Edad", "Género", "Fecha Agendada"
+                "Cedula", "Nombres", "Apellidos", "FechaNacimiento", "Telefono", "Genero", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
+        jScrollPane1.setViewportView(JtablePacientes);
+        if (JtablePacientes.getColumnModel().getColumnCount() > 0) {
+            JtablePacientes.getColumnModel().getColumn(0).setResizable(false);
+            JtablePacientes.getColumnModel().getColumn(1).setResizable(false);
+            JtablePacientes.getColumnModel().getColumn(2).setResizable(false);
+            JtablePacientes.getColumnModel().getColumn(3).setResizable(false);
+            JtablePacientes.getColumnModel().getColumn(4).setResizable(false);
+            JtablePacientes.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jPanel5.setBackground(new java.awt.Color(0, 255, 255));
@@ -369,10 +403,71 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
 
     private void jbntAgregarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbntAgregarPacienteActionPerformed
         // TODO add your handling code here:
-        VentanaAcceso vntPaciente = new VentanaAcceso();
-        vntPaciente.setVisible(true);
+        Controlador.ControladorPaciente ctrpaciente = new ControladorPaciente();
+        Paciente mod = new Paciente();
+        mod.setNumcedula(Integer.parseInt(txtCedula.getText()));
+        mod.setNombres(txtNombres.getText());
+        mod.setApellidos(txtApellidos.getText());
+        mod.setFechaNacimiento(jDateFecha.getDate()); 
+        mod.setGenero(cbxGenero.getSelectedItem().toString());
+        mod.setTelefono(Integer.parseInt(txtTelefono.getText()));
+        mod.setEmail(txtEmail.getText());
+        
+        DefaultTableModel modelTable = new DefaultTableModel();
+        //JtablePacientes.setModel(modelTable);
+        modelTable.addColumn("Cedula");
+        modelTable.addColumn("Nombres");
+        modelTable.addColumn("Apellidos");
+        modelTable.addColumn("FechaNacimiento");
+        modelTable.addColumn("Telefono");
+        modelTable.addColumn("Genero");
+        modelTable.addColumn("Email");
+        
+        Object[] lista = new Object[7];
+        int num = ctrpaciente.Listar().size();
+        for(int i=0; i<num; i++){
+            lista[0] = ctrpaciente.Listar().get(i).getNumcedula();
+            lista[1] = ctrpaciente.Listar().get(i).getNombres();
+            lista[2] = ctrpaciente.Listar().get(i).getApellidos();
+            lista[3] = ctrpaciente.Listar().get(i).getFechaNacimiento();
+            lista[4] = ctrpaciente.Listar().get(i).getTelefono();
+            lista[5] = ctrpaciente.Listar().get(i).getGenero();
+            lista[6] = ctrpaciente.Listar().get(i).getEmail();
+            //modelTable.addRow(lista);
+            //JtablePacientes.setModel(lista);
+        
+        if(ctrpaciente.Agregar(mod)){
+            JOptionPane.showMessageDialog(null, "Datos registrados exitosamente");
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al guardar");
+        }
     }//GEN-LAST:event_jbntAgregarPacienteActionPerformed
-
+//    public void LlenarTabla(JTable table){
+//        Controlador.ControladorPaciente ctrPaciente = new ControladorPaciente();
+//        DefaultTableModel modelTable = new DefaultTableModel();
+//        table.setModel(modelTable);
+//        modelTable.addColumn("Cedula");
+//        modelTable.addColumn("Nombres");
+//        modelTable.addColumn("Apellidos");
+//        modelTable.addColumn("FechaNacimiento");
+//        modelTable.addColumn("Telefono");
+//        modelTable.addColumn("Genero");
+//        modelTable.addColumn("Email");
+//        
+//        Object[] lista = new Object[7];
+//        
+//        int num = ctrPaciente.Listar().size();
+//        for(int i=0; i<num; i++){
+//            lista[0] = ctrPaciente.Listar().get(i).getNumcedula();
+//            lista[1] = ctrPaciente.Listar().get(i).getNombres();
+//            lista[2] = ctrPaciente.Listar().get(i).getApellidos();
+//            lista[3] = ctrPaciente.Listar().get(i).getFechaNacimiento();
+//            lista[4] = ctrPaciente.Listar().get(i).getTelefono();
+//            lista[5] = ctrPaciente.Listar().get(i).getGenero();
+//            lista[6] = ctrPaciente.Listar().get(i).getEmail();
+//            modelTable.addRow(lista);
+//        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -439,9 +534,12 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JtablePacientes;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JComboBox<String> cbxGenero;
     private javax.swing.JButton jBntBuscar;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton jBtnListar;
+    private com.toedter.calendar.JDateChooser jDateFecha;
     private javax.swing.JLabel jLApellidos;
     private javax.swing.JLabel jLDatos;
     private javax.swing.JLabel jLFechaNacimiento;
@@ -455,6 +553,7 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLcorreo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -462,14 +561,13 @@ public class VentanaRegistroPaciente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTfApellidos;
-    private javax.swing.JTextField jTfCedulaIdentidad;
-    private javax.swing.JTextField jTfCorreo;
-    private javax.swing.JTextField jTftelefono;
     private javax.swing.JButton jbntAgregarPaciente;
     private javax.swing.JButton jbntModificar;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

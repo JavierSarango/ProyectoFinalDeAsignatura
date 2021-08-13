@@ -23,7 +23,7 @@ public class Medico extends Persona {
        super.setNumcedula(numCedula);
        super.setGenero(sexo);
        super.setTelefono(telefono);
-       super.setCiudad(ciudad);
+       //super.setCiudad(ciudad);
      }
 
 //     public Medico(String especialidad, String nombre,String apellidos, int edad, int numCedula, String sexo, int telefono){
